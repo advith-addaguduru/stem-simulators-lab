@@ -1,0 +1,5 @@
+streamlit>=1.56.0
+numpy>=2.4.4
+matplotlib>=3.10.8
+scipy>=1.17.1
+bcrypt>=4.3.0

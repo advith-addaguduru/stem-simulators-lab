@@ -1,0 +1,17 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+build/
+dist/
+downloads/
+
+# STEM Lab data & logs
+data/
+logs/
+*.db
+.env

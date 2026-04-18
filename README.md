@@ -151,6 +151,27 @@ streamlit run app.py
 
 The app opens at `http://localhost:8501`.
 
+### Testing
+
+The project includes comprehensive unit tests for core functionality.
+
+```bash
+# Install test dependencies (pytest is already in requirements.txt)
+pip install -r requirements.txt
+
+# Run all tests
+pytest
+
+# Run specific test file
+pytest tests/test_auth.py
+
+# Run with verbose output
+pytest -v
+
+# Run tests with coverage
+pytest --cov=core --cov=simulators
+```
+
 ### First-Time Setup
 
 1. Open the app and click **Sign Up** to create an account.

@@ -138,6 +138,8 @@ Every simulator includes a detailed description and curated reference links to K
 ```bash
 git clone https://github.com/your-username/stem-simulators.git
 cd stem-simulators
+python -m venv .venv
+.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 
 # Copy and configure environment (optional — defaults work out of the box)

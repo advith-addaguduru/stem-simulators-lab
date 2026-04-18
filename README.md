@@ -304,7 +304,7 @@ See [`.env.example`](.env.example) for the full list.
 | `STEMLAB_PW_REQUIRE_DIGIT` | `1` | Require digit in password |
 | `STEMLAB_PW_REQUIRE_SPECIAL` | `0` | Require special character in password |
 | `STEMLAB_LOG_LEVEL` | `INFO` | Logging level |
-| `STEMLAB_SUPPORT_EMAIL` | `support@stemlab.example.com` | Contact email |
+| `STEMLAB_SUPPORT_EMAIL` | `advith.addaguduru@gmail.com` | Contact email |
 
 ---
 

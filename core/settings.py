@@ -62,4 +62,4 @@ PASSWORD_REQUIRE_SPECIAL = os.getenv("STEMLAB_PW_REQUIRE_SPECIAL", "0") == "1"
 APP_NAME = "STEM Lab"
 APP_VERSION = "5.2"
 APP_TAGLINE = "Interactive Science & Mathematics Simulators"
-SUPPORT_EMAIL = os.getenv("STEMLAB_SUPPORT_EMAIL", "support@stemlab.example.com")
+SUPPORT_EMAIL = os.getenv("STEMLAB_SUPPORT_EMAIL", "advith.addaguduru@gmail.com")

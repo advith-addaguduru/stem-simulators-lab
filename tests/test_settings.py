@@ -242,4 +242,4 @@ class TestAppMetadata:
         importlib.reload(core.settings)
         from core.settings import SUPPORT_EMAIL as se
 
-        assert se == "support@stemlab.example.com"
+        assert se == "advith.addaguduru@gmail.com"

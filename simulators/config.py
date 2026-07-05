@@ -1,7 +1,7 @@
 """
 STEM Lab — Simulator Catalog
 =============================
-Maps Pack → Subject → Topics.
+Maps Pack -> Subject -> Topics.
 Each topic entry: name, icon, desc, detail, refs, module path, function name.
 """
 
@@ -18,7 +18,7 @@ CATALOG = {
                     "desc": "How forces make things move, stop, and change direction",
                     "detail": (
                         "Explore the relationship between speed, distance, and time "
-                        "using the formula speed = distance ÷ time. Investigate "
+                        "using the formula speed = distance / time. Investigate "
                         "Newton's Second Law (F = ma) to see how force and mass "
                         "affect acceleration, and discover how friction opposes "
                         "motion on different surfaces."
@@ -77,7 +77,7 @@ CATALOG = {
                         "field-line plots produced with matplotlib streamplot. "
                         "Place a compass needle at any point to see the field "
                         "direction, and investigate how current and number of turns "
-                        "affect electromagnet strength (B = μ₀NI/L)."
+                        "affect electromagnet strength (B = mu0 NI/L)."
                     ),
                     "refs": [
                         {"title": "Khan Academy — Magnets and Magnetic Force", "url": "https://www.khanacademy.org/science/physics/magnetic-forces-and-magnetic-fields"},
@@ -311,7 +311,7 @@ CATALOG = {
                         "Launch a projectile at any angle and speed. Trace the "
                         "parabolic trajectory and analyse horizontal range, maximum "
                         "height, and flight time. Explore how launch angle affects "
-                        "range — maximum at 45°."
+                        "range — maximum at 45 degrees."
                     ),
                     "refs": [
                         {"title": "Khan Academy — Projectile Motion", "url": "https://www.khanacademy.org/science/physics/two-dimensional-motion"},
@@ -327,7 +327,7 @@ CATALOG = {
                     "desc": "Newton's laws and hydrostatic pressure",
                     "detail": (
                         "Apply Newton's Second Law (F = ma) to predict acceleration "
-                        "and explore hydrostatic pressure (P = ρgh) in fluids. "
+                        "and explore hydrostatic pressure (P = rho gh) in fluids. "
                         "Visualise how depth and fluid density affect pressure."
                     ),
                     "refs": [
@@ -347,7 +347,7 @@ CATALOG = {
                         "lamps, and diodes. Calculate equivalent resistance for "
                         "series and parallel networks of up to three resistors, "
                         "and design a potential divider to produce a target output "
-                        "voltage using Vout = Vin × R₂/(R₁ + R₂)."
+                        "voltage using Vout = Vin * R2/(R1 + R2)."
                     ),
                     "refs": [
                         {"title": "Khan Academy — Circuits", "url": "https://www.khanacademy.org/science/physics/circuits-topic"},
@@ -363,8 +363,8 @@ CATALOG = {
                     "desc": "Wave properties, Snell's law & total internal reflection",
                     "detail": (
                         "Explore transverse and longitudinal waves with adjustable "
-                        "frequency and amplitude (v = fλ). Trace light rays through "
-                        "boundaries using Snell's law (n₁ sin θ₁ = n₂ sin θ₂), and "
+                        "frequency and amplitude (v = f lambda). Trace light rays through "
+                        "boundaries using Snell's law (n1 sin theta1 = n2 sin theta2), and "
                         "discover the critical angle for total internal reflection "
                         "in optical fibres and prisms."
                     ),
@@ -632,7 +632,7 @@ CATALOG = {
                     "detail": (
                         "Study coplanar forces in equilibrium, calculate density "
                         "from mass and volume, and compute hydrostatic pressure "
-                        "(P = ρgh). Explore Archimedes' principle and buoyancy."
+                        "(P = rho gh). Explore Archimedes' principle and buoyancy."
                     ),
                     "refs": [
                         {"title": "Khan Academy — Fluids", "url": "https://www.khanacademy.org/science/physics/fluids"},
@@ -701,7 +701,7 @@ CATALOG = {
                     "icon": "🔄",
                     "desc": "Oscillations, springs & pendulums",
                     "detail": (
-                        "Model the displacement x(t) = A sin(ωt + φ) for a mass on "
+                        "Model the displacement x(t) = A sin(omega t + phi) for a mass on "
                         "a spring or a simple pendulum. Visualise velocity and "
                         "acceleration phases, and observe kinetic/potential energy "
                         "exchange with total energy conservation (E = ½kA²)."
@@ -721,7 +721,7 @@ CATALOG = {
                     "detail": (
                         "Generate transverse and longitudinal waves and observe "
                         "how wavelength, frequency, and amplitude relate via "
-                        "v = fλ. Simulate the Doppler effect to see how relative "
+                        "v = f lambda. Simulate the Doppler effect to see how relative "
                         "motion between source and observer shifts frequency."
                     ),
                     "refs": [
@@ -868,7 +868,7 @@ CATALOG = {
                     "icon": "🔥",
                     "desc": "Enthalpy changes & Hess's law",
                     "detail": (
-                        "Calculate standard enthalpy changes (ΔH) for exothermic "
+                        "Calculate standard enthalpy changes (delta H) for exothermic "
                         "and endothermic reactions using Hess's law and bond "
                         "energies. Visualise energy bar charts and enthalpy level "
                         "diagrams."
@@ -1072,7 +1072,7 @@ CATALOG = {
                     "icon": "📊",
                     "desc": "Normal & binomial distributions and hypothesis testing",
                     "detail": (
-                        "Explore the Normal distribution N(μ, σ²) with adjustable "
+                        "Explore the Normal distribution N(mu, sigma^2) with adjustable "
                         "mean and standard deviation — shade areas and compute "
                         "probabilities using Z-scores. Generate binomial "
                         "distributions B(n, p) and overlay the normal "
@@ -1159,7 +1159,7 @@ CATALOG = {
                     "desc": "Simulate disease spread with the SIR compartmental model",
                     "detail": (
                         "Divide a population into Susceptible, Infected, and Recovered "
-                        "compartments. Adjust transmission rate β and recovery rate γ "
+                        "compartments. Adjust transmission rate beta and recovery rate gamma "
                         "to observe epidemic curves, compute R₀, and explore herd "
                         "immunity through vaccination coverage."
                     ),

@@ -52,7 +52,7 @@ _PASSWORD_MIN_LEN = 8
 
 
 def _validate_signup(username: str, email: str, password: str, display_name: str = "") -> list[str]:
-    """Return a list of validation error messages (empty → valid)."""
+    """Return a list of validation error messages (empty -> valid)."""
     errors: list[str] = []
     # Length guardrails
     if (err := check_length(username, "Username", INPUT_MAX_USERNAME)):

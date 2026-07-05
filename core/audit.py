@@ -37,12 +37,18 @@ def log(
 ):
     """Record an auditable event in the DB and the audit log file."""
     # DB
-    with get_db() as conn:
-        conn.execute(
-            "INSERT INTO audit_log (user_id, username, action, detail, ip_address, level) "
-            "VALUES (?, ?, ?, ?, ?, ?)",
-            (user_id, username, action, detail, ip_address, level),
-        )
+    try:
+        with get_db() as conn:
+            conn.execute(
+                "INSERT INTO audit_log (user_id, username, action, detail, ip_address, level) "
+                "VALUES (?, ?, ?, ?, ?, ?)",
+                (user_id, username, action, detail, ip_address, level),
+            )
+    except Exception:
+        # Allow guest/unknown users and other non-critical audit failures to proceed.
+        # The file log is still written so the event is retained.
+        pass
+
     # File (sanitize to prevent log injection)
     _audit.info(
         "%s | user=%s (%s) | %s | %s",

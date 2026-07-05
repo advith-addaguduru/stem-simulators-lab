@@ -79,7 +79,12 @@ st.markdown(_CSS, unsafe_allow_html=True)
 
 
 # ─── Session state defaults ──────────────────────────────────────────────────
-for _k, _v in {"session_id": None, "user": None, "auth_tab": "Login"}.items():
+for _k, _v in {
+    "session_id": None,
+    "user": None,
+    "auth_tab": "Login",
+    "show_signup_form": False,
+}.items():
     if _k not in st.session_state:
         st.session_state[_k] = _v
 
@@ -261,16 +266,61 @@ def _main_app():
         _page_about()
 
 
+def _render_home_signup_form():
+    if not st.session_state.get("show_signup_form", False):
+        return
+
+    with st.expander("Create an account", expanded=True):
+        with st.form("home_signup_form"):
+            su_display = st.text_input("Display Name", key="home_su_display")
+            su_user = st.text_input("Username", key="home_su_user")
+            su_email = st.text_input("Email", key="home_su_email")
+            su_pass = st.text_input("Password", type="password", key="home_su_pass")
+            su_pass2 = st.text_input("Confirm Password", type="password", key="home_su_pass2")
+            agreed = st.checkbox(
+                "I agree to the Terms of Service and Privacy Policy",
+                key="home_signup_agree",
+            )
+            submitted = st.form_submit_button("Create Account", use_container_width=True)
+
+        if submitted:
+            if not agreed:
+                st.warning("You must agree to the Terms of Service and Privacy Policy.")
+            elif su_pass != su_pass2:
+                st.warning("Passwords do not match.")
+            elif not su_user or not su_email or not su_pass:
+                st.warning("Please fill in all required fields.")
+            elif not check_signup_rate():
+                st.error("Too many signup attempts. Please wait a minute and try again.")
+            else:
+                su_display = sanitize_text(su_display, max_length=INPUT_MAX_DISPLAY_NAME)
+                result = auth.signup(su_user, su_email, su_pass, su_display)
+                if result["ok"]:
+                    st.session_state.show_signup_form = False
+                    st.success("Account created! You can now sign in normally.")
+                    st.rerun()
+                else:
+                    for err in result["errors"]:
+                        st.error(err)
+
+
 # ─── Page: Home ──────────────────────────────────────────────────────────────
 def _page_home():
-    st.markdown(
-        '<div class="hero">'
-        "<h1>🔬 STEM Lab</h1>"
-        "<p>Interactive Science &amp; Mathematics Simulators</p>"
-        '<p style="opacity:.65;font-size:.85rem">Foundation · Core STEM · Advanced · Cross-Disciplinary</p>'
-        "</div>",
-        unsafe_allow_html=True,
-    )
+    header_col, action_col = st.columns([5, 1], vertical_alignment="center")
+    with header_col:
+        st.markdown(
+            '<div class="hero">'
+            "<h1>🔬 STEM Lab</h1>"
+            "<p>Interactive Science &amp; Mathematics Simulators</p>"
+            '<p style="opacity:.65;font-size:.85rem">Foundation · Core STEM · Advanced · Cross-Disciplinary</p>'
+            "</div>",
+            unsafe_allow_html=True,
+        )
+    with action_col:
+        if st.button("📝 Sign Up", use_container_width=True):
+            st.session_state.show_signup_form = not st.session_state.get("show_signup_form", False)
+
+    _render_home_signup_form()
 
     s = get_stats()
     c1, c2, c3 = st.columns(3)
@@ -751,6 +801,14 @@ def _footer():
 _restore_session()
 
 if _current_user() is None:
-    _page_auth()
-else:
-    _main_app()
+    st.session_state.user = {
+        "id": 0,
+        "username": "guest",
+        "email": "guest@example.com",
+        "display_name": "Guest",
+        "role": "student",
+        "created_at": "guest",
+    }
+    st.session_state.session_id = "guest-session"
+
+_main_app()

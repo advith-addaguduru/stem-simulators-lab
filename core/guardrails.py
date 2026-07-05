@@ -77,7 +77,7 @@ def check_length(value: str, field_name: str, max_len: int) -> str | None:
 
 def validate_password_strength(password: str) -> list[str]:
     """
-    Return a list of password-strength error messages (empty → strong enough).
+    Return a list of password-strength error messages (empty -> strong enough).
     Checks complexity rules configured in settings.
     """
     errors: list[str] = []

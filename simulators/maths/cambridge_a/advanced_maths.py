@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Cambridge A Level Maths: Advanced Calculus & Further Pure Simulator"""
 import streamlit as st
 import numpy as np
@@ -5,7 +6,7 @@ import matplotlib.pyplot as plt
 
 
 def simulate():
-    st.subheader("A Level Mathematics — Further Pure & Mechanics")
+    st.subheader("A Level Mathematics - Further Pure & Mechanics")
 
     mode = st.radio(
         "Select topic",
@@ -26,7 +27,7 @@ def _integration_techniques():
 
     with st.sidebar.expander("Integration Controls", expanded=True):
         func = st.selectbox("Function f(x)", [
-            "x·sin(x)", "x²·eˣ", "ln(x)", "1/√(1+x²)"
+            "x*sin(x)", "x^2*e^x", "ln(x)", "1/sqrt(1+x^2)"
         ], key="adv_int_func")
         a_lim = st.slider("Lower limit a", 0.1, 4.0, 0.5, step=0.1, key="adv_int_a")
         b_lim = st.slider("Upper limit b", 1.0, 8.0, 3.0, step=0.1, key="adv_int_b")
@@ -39,9 +40,9 @@ def _integration_techniques():
     x = np.linspace(0.01, 10, 500)
 
     def f(x_val):
-        if func == "x·sin(x)":
+        if func == "x*sin(x)":
             return x_val * np.sin(x_val)
-        elif func == "x²·eˣ":
+        elif func == "x^2*e^x":
             return x_val**2 * np.exp(x_val)
         elif func == "ln(x)":
             return np.log(np.maximum(x_val, 1e-10))
@@ -59,7 +60,7 @@ def _integration_techniques():
     trap_area = h / 2 * (y_trap[0] + 2 * np.sum(y_trap[1:-1]) + y_trap[-1])
 
     # Numerical exact
-    exact_area = np.trapz(y_fill, x_fill)
+    exact_area = np.trapezoid(y_fill, x_fill)
 
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
@@ -198,8 +199,8 @@ def _vectors_mechanics():
         st.markdown(f"|A| = {mag_a:.3f}, |B| = {mag_b:.3f}, |R| = {mag_r:.3f}")
     else:
         with st.sidebar.expander("Projectile Controls", expanded=True):
-            v0 = st.slider("Initial speed v₀ (m/s)", 5.0, 50.0, 20.0, step=1.0, key="vp_v0")
-            theta_deg = st.slider("Launch angle θ (°)", 10, 80, 45, key="vp_theta")
+            v0 = st.slider("Initial speed v0 (m/s)", 5.0, 50.0, 20.0, step=1.0, key="vp_v0")
+            theta_deg = st.slider("Launch angle theta (°)", 10, 80, 45, key="vp_theta")
             g = 9.81
 
         theta = np.radians(theta_deg)

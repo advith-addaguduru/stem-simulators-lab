@@ -76,7 +76,7 @@ def simulate():
 
         energy_input = st.slider("Energy supplied (kJ)", 0, 500, 250, step=10)
 
-        # Simplified heating curve for water (0→100→100→steam)
+        # Simplified heating curve for water (0->100->100->steam)
         fig, ax = plt.subplots(figsize=(10, 5))
 
         segments_e = [0, 42, 42 + 226, 42 + 226 + 21, 42 + 226 + 21 + 200]
@@ -87,22 +87,22 @@ def simulate():
         # Marker for current energy
         if energy_input <= e_plot[1]:
             temp_now = (energy_input / e_plot[1]) * 100 if e_plot[1] > 0 else 0
-            phase = "Solid → Liquid (Heating ice/water)"
+            phase = "Solid -> Liquid (Heating ice/water)"
         elif energy_input <= e_plot[2]:
             temp_now = 100
             phase = "Melting / Boiling (Phase change — temp stays constant!)"
         elif energy_input <= e_plot[3]:
             frac = (energy_input - e_plot[2]) / max(e_plot[3] - e_plot[2], 1)
             temp_now = 100 + frac * 100
-            phase = "Liquid → Gas (Heating steam)"
+            phase = "Liquid -> Gas (Heating steam)"
         else:
             temp_now = 200
             phase = "Superheated gas"
 
         ax.scatter([energy_input], [temp_now], color="red", s=120, zorder=5)
-        ax.axhline(y=100, color="#94a3b8", ls="--", alpha=0.5, label="Boiling point (100 °C)")
+        ax.axhline(y=100, color="#94a3b8", ls="--", alpha=0.5, label="Boiling point (100 degrees C)")
         ax.set_xlabel("Energy supplied (kJ)")
-        ax.set_ylabel("Temperature (°C)")
+        ax.set_ylabel("Temperature (degrees C)")
         ax.set_title("Heating Curve")
         ax.legend()
         ax.grid(True, alpha=0.3)
@@ -111,7 +111,7 @@ def simulate():
         st.pyplot(fig, use_container_width=True)
         plt.close(fig)
 
-        st.metric("Temperature", f"{temp_now:.0f} °C")
+        st.metric("Temperature", f"{temp_now:.0f} degrees C")
         st.info(f"📌 **Phase:** {phase}")
         st.info(
             "💡 **Key idea:** During a phase change (melting or boiling), "

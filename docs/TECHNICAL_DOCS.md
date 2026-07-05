@@ -83,6 +83,8 @@ Each **pack** has `icon`, `desc`, and `subjects` keys. Each **topic** entry:
 
 `get_stats()` returns aggregate counts for the home page metrics.
 
+**Note**: All simulator files should be encoded in UTF-8 to ensure compatibility across different environments.
+
 ### `simulators/utils.py` — Shared Utilities
 
 - `nice_axes(ax, xlabel, ylabel, title)` — Consistent axis formatting.
